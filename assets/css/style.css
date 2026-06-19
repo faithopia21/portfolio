@@ -15,11 +15,35 @@
   --accent-light: #e0f2fe; /* Sky 100 */
   --border-color: #e2e8f0; /* Slate 200 */
   --card-bg: #ffffff;
+  --header-bg: rgba(255, 255, 255, 0.95);
+  --hero-overlay: rgba(255, 255, 255, 0.95);
   
   --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.03);
   --shadow-md: 0 8px 20px rgba(2, 132, 199, 0.06);
   --shadow-lg: 0 16px 36px rgba(2, 132, 199, 0.12);
   --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #0f172a; /* Slate 900 */
+    --bg-secondary: #1e293b; /* Slate 800 */
+    --bg-tertiary: #334155; /* Slate 700 */
+    --text-primary: #f8fafc; /* Slate 50 */
+    --text-secondary: #cbd5e1; /* Slate 300 */
+    --text-muted: #94a3b8; /* Slate 400 */
+    --accent-color: #38bdf8; /* Sky 400 */
+    --accent-hover: #7dd3fc; /* Sky 300 */
+    --accent-light: rgba(56, 189, 248, 0.15); /* Transparent Sky */
+    --border-color: #334155; /* Slate 700 */
+    --card-bg: #1e293b; /* Slate 800 */
+    --header-bg: rgba(15, 23, 42, 0.95);
+    --hero-overlay: rgba(15, 23, 42, 0.95);
+    
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.2);
+    --shadow-md: 0 8px 20px rgba(0, 0, 0, 0.3);
+    --shadow-lg: 0 16px 36px rgba(0, 0, 0, 0.4);
+  }
 }
 
 /* Global Styles */
@@ -69,7 +93,7 @@ h1, h2, h3, h4, h5, h6 {
   bottom: 0;
   z-index: 9999;
   overflow: hidden;
-  background: #fff;
+  background: var(--bg-color);
 }
 
 #preloader:before {
@@ -128,12 +152,24 @@ h1, h2, h3, h4, h5, h6 {
 # Header & Navigation
 --------------------------------------------------------------*/
 #header {
-  background: rgba(255, 255, 255, 0.95);
+  background: var(--header-bg);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--border-color);
   z-index: 997;
   padding: 15px 0;
   transition: var(--transition);
+}
+
+@media (max-width: 576px) {
+  #header .logo {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  #header {
+    padding: 10px 0;
+  }
 }
 
 #header .logo {
@@ -246,25 +282,30 @@ h1, h2, h3, h4, h5, h6 {
   transform: translateY(-2px);
 }
 
-.header-social-links .btn-cv-download {
-  background: var(--accent-color);
-  color: #fff !important;
-  font-size: 13px;
+.header-social-links .header-cv-link {
+  color: var(--text-secondary);
+  font-size: 14px;
   font-weight: 600;
-  padding: 6px 16px;
-  border-radius: 50px;
-  border: 1px solid var(--accent-color);
-  width: auto;
-  height: auto;
+  padding: 4px 10px;
   display: inline-flex;
   align-items: center;
   gap: 6px;
+  width: auto;
+  height: auto;
+  background: none;
+  border: none;
+  border-radius: 0;
+  transition: var(--transition);
 }
 
-.header-social-links .btn-cv-download:hover {
-  background: var(--accent-hover);
-  border-color: var(--accent-hover);
-  color: #fff !important;
+.header-social-links .header-cv-link:hover {
+  color: var(--accent-color);
+  background: none;
+  transform: translateY(-1px);
+}
+
+.header-social-links .header-cv-link i {
+  font-size: 16px;
 }
 
 /* Mobile Nav Toggle */
@@ -315,7 +356,7 @@ h1, h2, h3, h4, h5, h6 {
   left: 20px;
   padding: 20px 0;
   border-radius: 12px;
-  background-color: #fff;
+  background-color: var(--bg-secondary);
   overflow-y: auto;
   transition: var(--transition);
   box-shadow: var(--shadow-lg);
@@ -390,7 +431,7 @@ section {
   display: flex;
   align-items: center;
   padding: 130px 0 60px 0;
-  background: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)), url("../img/hero-bg.jpeg") center center no-repeat;
+  background: linear-gradient(var(--hero-overlay), var(--hero-overlay)), url("../img/hero-bg.jpeg") center center no-repeat;
   background-size: cover;
 }
 
@@ -558,6 +599,16 @@ section {
 }
 
 @media (max-width: 991px) {
+  [data-aos] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  #hero {
+    min-height: auto;
+    height: auto;
+    padding: 120px 0 60px 0;
+  }
   .hero-content {
     flex-direction: column;
     text-align: center;
@@ -592,7 +643,7 @@ section {
 # About & Skills
 --------------------------------------------------------------*/
 .about-box {
-  background: #fff;
+  background: var(--card-bg);
   border-radius: 12px;
   border: 1px solid var(--border-color);
   padding: 40px;
@@ -812,7 +863,7 @@ section {
   text-align: left;
   padding: 40px 30px;
   transition: var(--transition);
-  background: #fff;
+  background: var(--card-bg);
   border: 1px solid var(--border-color);
   border-radius: 12px;
   box-shadow: var(--shadow-sm);
@@ -1060,7 +1111,7 @@ section {
 # Contact Page Layout
 --------------------------------------------------------------*/
 .contact .info {
-  background: #fff;
+  background: var(--card-bg);
   border: 1px solid var(--border-color);
   border-radius: 12px;
   padding: 40px;
@@ -1082,7 +1133,7 @@ section {
   transform: translateY(-3px);
   border-color: var(--accent-color);
   box-shadow: var(--shadow-md);
-  background: #fff;
+  background: var(--bg-color);
 }
 
 .contact .info-item i {
