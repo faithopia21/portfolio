@@ -387,10 +387,11 @@ section {
 #hero {
   width: 100%;
   min-height: calc(100vh - 80px);
-  background-color: var(--bg-color);
   display: flex;
   align-items: center;
-  padding: 60px 0;
+  padding: 130px 0 60px 0;
+  background: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)), url("../img/hero-bg.jpeg") center center no-repeat;
+  background-size: cover;
 }
 
 .hero-content {
