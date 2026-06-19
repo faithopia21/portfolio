@@ -1,0 +1,1141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Faith Olaniyi | Health Data Scientist & AI Researcher</title>
+  <meta name="description"
+    content="Faith Olaniyi — Emerging Health Data Scientist and AI Researcher at the intersection of Machine Learning, Artificial Intelligence, and Public Health in Africa." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap"
+    rel="stylesheet" />
+  <style>
+    /* ─── Design Tokens ─────────────────────────────────────────────── */
+    :root {
+      --bg: #0b0f1a;
+      --surface: #111827;
+      --surface-2: #1a2234;
+      --border: rgba(255, 255, 255, 0.06);
+      --border-hover: rgba(14, 165, 233, 0.5);
+      --text-primary: #f0f4ff;
+      --text-secondary: #94a3b8;
+      --text-muted: #475569;
+      --accent: #0ea5e9;
+      --accent-glow: rgba(14, 165, 233, 0.20);
+      --accent-2: #6366f1;
+      --accent-3: #10b981;
+      --radius-card: 16px;
+      --radius-tag: 999px;
+      --shadow-rest: 0 4px 24px rgba(0, 0, 0, 0.3);
+      --shadow-lift: 0 28px 60px rgba(0, 0, 0, 0.55), 0 0 0 1px var(--border-hover), 0 0 40px var(--accent-glow);
+      --transition-card: transform 0.45s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+        box-shadow 0.45s ease,
+        border-color 0.3s ease;
+    }
+
+    /* ─── Reset ─────────────────────────────────────────────────────── */
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text-primary);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* ─── Ambient Background Orbs ───────────────────────────────────── */
+    .bg-orbs {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(90px);
+      opacity: 0.18;
+      animation: drift 18s ease-in-out infinite alternate;
+    }
+
+    .orb-1 {
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, #0ea5e9, transparent 70%);
+      top: -200px;
+      left: -150px;
+      animation-delay: 0s;
+    }
+
+    .orb-2 {
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, #6366f1, transparent 70%);
+      top: 40%;
+      right: -180px;
+      animation-delay: -6s;
+    }
+
+    .orb-3 {
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, #10b981, transparent 70%);
+      bottom: -100px;
+      left: 30%;
+      animation-delay: -12s;
+    }
+
+    @keyframes drift {
+      0% {
+        transform: translate(0, 0) scale(1);
+      }
+
+      100% {
+        transform: translate(40px, 30px) scale(1.08);
+      }
+    }
+
+    /* ─── Layout ─────────────────────────────────────────────────────── */
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* ─── Nav ────────────────────────────────────────────────────────── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 0.85rem 0;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      background: rgba(11, 15, 26, 0.8);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-brand {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      letter-spacing: 0.02em;
+    }
+
+    .nav-brand span {
+      color: var(--accent);
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.75rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .nav-cv-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      background: rgba(14, 165, 233, 0.1);
+      border: 1px solid rgba(14, 165, 233, 0.3);
+      border-radius: var(--radius-tag);
+      color: var(--text-primary);
+      text-decoration: none;
+      font-size: 0.825rem;
+      font-weight: 600;
+      transition: all 0.25s ease;
+    }
+
+    .nav-cv-btn:hover {
+      background: var(--accent);
+      color: #fff;
+      box-shadow: 0 0 15px var(--accent-glow);
+      transform: translateY(-1px);
+    }
+
+    /* ─── Hero ───────────────────────────────────────────────────────── */
+    header {
+      padding: 6rem 0 4rem;
+    }
+
+    .hero-split {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .hero-content {
+      text-align: left;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(14, 165, 233, 0.1);
+      border: 1px solid rgba(14, 165, 233, 0.25);
+      color: var(--accent);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.35rem 1rem;
+      border-radius: var(--radius-tag);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+      box-shadow: 0 0 8px var(--accent);
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse-dot {
+
+      0%,
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: 0.5;
+        transform: scale(0.6);
+      }
+    }
+
+    h1 {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: clamp(2.6rem, 5.5vw, 4.4rem);
+      font-weight: 400;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+      background: linear-gradient(135deg, #f0f4ff 30%, #94c8f5 70%, #6366f1 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    h1 em {
+      font-style: italic;
+      font-family: 'Instrument Serif', Georgia, serif;
+    }
+
+    .subtitle {
+      font-size: 1.25rem;
+      color: var(--accent);
+      font-weight: 500;
+      letter-spacing: 0.01em;
+      margin-bottom: 1.75rem;
+    }
+
+    .bio {
+      color: var(--text-secondary);
+      font-size: 1.05rem;
+      line-height: 1.75;
+      margin-bottom: 2.25rem;
+    }
+
+    .hero-cta {
+      display: inline-flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.75rem 1.6rem;
+      border-radius: var(--radius-tag);
+      font-size: 0.875rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      box-shadow: 0 0 24px rgba(14, 165, 233, 0.35);
+    }
+
+    .btn-primary:hover {
+      background: #38bdf8;
+      box-shadow: 0 0 40px rgba(14, 165, 233, 0.55);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--text-secondary);
+      border: 1px solid var(--border);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--border-hover);
+      color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    /* Profile Picture Container with Antigravity Glow & Float */
+    .hero-image-container {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .profile-glow {
+      position: absolute;
+      width: 290px;
+      height: 290px;
+      background: radial-gradient(circle, var(--accent) 0%, var(--accent-2) 60%, transparent 100%);
+      filter: blur(40px);
+      opacity: 0.3;
+      z-index: 0;
+      animation: pulse-glow 6s ease-in-out infinite alternate;
+    }
+
+    .profile-frame {
+      position: relative;
+      z-index: 1;
+      width: 270px;
+      height: 270px;
+      border-radius: 30px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+      animation: float-avatar 6s ease-in-out infinite;
+    }
+
+    .profile-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .profile-frame:hover .profile-image {
+      transform: scale(1.05);
+    }
+
+    @keyframes float-avatar {
+      0% {
+        transform: translateY(0px) rotate(0deg);
+      }
+
+      50% {
+        transform: translateY(-12px) rotate(1deg);
+      }
+
+      100% {
+        transform: translateY(0px) rotate(0deg);
+      }
+    }
+
+    @keyframes pulse-glow {
+      0% {
+        transform: scale(0.9);
+        opacity: 0.25;
+      }
+
+      100% {
+        transform: scale(1.1);
+        opacity: 0.38;
+      }
+    }
+
+    /* ─── Divider ────────────────────────────────────────────────────── */
+    .section-divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border), transparent);
+      margin: 1rem 0 3.5rem;
+    }
+
+    /* ─── Section Header ─────────────────────────────────────────────── */
+    .section-header {
+      margin-bottom: 2.5rem;
+    }
+
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .section-label::before {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 1px;
+      background: var(--text-muted);
+    }
+
+    .section-title {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: 2rem;
+      font-weight: 400;
+      color: var(--text-primary);
+    }
+
+    /* ─── Project Grid & Antigravity Cards ───────────────────────────── */
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.75rem;
+      margin-bottom: 1.5rem;
+    }
+
+    /* THE ANTIGRAVITY CARD */
+    .card {
+      position: relative;
+      background: var(--surface);
+      padding: 2.25rem 2rem 2rem;
+      border-radius: var(--radius-card);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-rest);
+      transition: var(--transition-card);
+      cursor: default;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    /* Shimmer top-edge accent line */
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    /* Inner glow */
+    .card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: var(--radius-card);
+      background: radial-gradient(ellipse at 50% 0%, var(--accent-glow) 0%, transparent 60%);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    /* ANTIGRAVITY lift */
+    .card:hover {
+      transform: translateY(-14px);
+      box-shadow: var(--shadow-lift);
+      border-color: var(--border-hover);
+    }
+
+    .card:hover::before {
+      opacity: 1;
+    }
+
+    .card:hover::after {
+      opacity: 1;
+    }
+
+    /* indigo variant */
+    .card.indigo:hover {
+      border-color: rgba(99, 102, 241, 0.5);
+      box-shadow: 0 28px 60px rgba(0, 0, 0, 0.55),
+        0 0 0 1px rgba(99, 102, 241, 0.5),
+        0 0 40px rgba(99, 102, 241, 0.2);
+    }
+
+    .card.indigo::before {
+      background: linear-gradient(90deg, transparent, #6366f1, transparent);
+    }
+
+    .card.indigo::after {
+      background: radial-gradient(ellipse at 50% 0%, rgba(99, 102, 241, 0.15) 0%, transparent 60%);
+    }
+
+    .card.indigo .card-icon {
+      background: rgba(99, 102, 241, 0.12);
+      color: #818cf8;
+    }
+
+    .card.indigo .tag {
+      color: #818cf8;
+      background: rgba(99, 102, 241, 0.1);
+    }
+
+    /* emerald variant */
+    .card.emerald:hover {
+      border-color: rgba(16, 185, 129, 0.5);
+      box-shadow: 0 28px 60px rgba(0, 0, 0, 0.55),
+        0 0 0 1px rgba(16, 185, 129, 0.5),
+        0 0 40px rgba(16, 185, 129, 0.2);
+    }
+
+    .card.emerald::before {
+      background: linear-gradient(90deg, transparent, #10b981, transparent);
+    }
+
+    .card.emerald::after {
+      background: radial-gradient(ellipse at 50% 0%, rgba(16, 185, 129, 0.12) 0%, transparent 60%);
+    }
+
+    .card.emerald .card-icon {
+      background: rgba(16, 185, 129, 0.12);
+      color: #34d399;
+    }
+
+    .card.emerald .tag {
+      color: #34d399;
+      background: rgba(16, 185, 129, 0.1);
+    }
+
+    /* Card internals */
+    .card-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: rgba(14, 165, 233, 0.1);
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      margin-bottom: 1.25rem;
+      position: relative;
+      z-index: 1;
+      transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .card:hover .card-icon {
+      transform: translateY(-4px) scale(1.1);
+    }
+
+    .card h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 0.6rem;
+      position: relative;
+      z-index: 1;
+      line-height: 1.4;
+    }
+
+    .card p {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      line-height: 1.65;
+      margin-bottom: 1.5rem;
+      position: relative;
+      z-index: 1;
+      flex-grow: 1;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 1.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .tag {
+      background: rgba(14, 165, 233, 0.1);
+      color: var(--accent);
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 0.25rem 0.7rem;
+      border-radius: var(--radius-tag);
+      letter-spacing: 0.03em;
+      transition: background 0.2s;
+    }
+
+    .card:hover .tag {
+      background: rgba(14, 165, 233, 0.17);
+    }
+
+    /* Card Actions (Links) */
+    .card-actions {
+      display: flex;
+      gap: 1.25rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      padding-top: 1rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .card-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: color 0.2s, transform 0.2s;
+    }
+
+    .card-link:hover {
+      color: var(--accent);
+      transform: translateY(-1px);
+    }
+
+    .card-link svg {
+      width: 14px;
+      height: 14px;
+      fill: currentColor;
+    }
+
+    /* ─── Stats Strip ────────────────────────────────────────────────── */
+    .stats-strip {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 1rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-card);
+      padding: 2rem;
+      margin: 4.5rem 0;
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-number {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1.2;
+    }
+
+    .stat-label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      font-weight: 500;
+      margin-top: 0.25rem;
+      letter-spacing: 0.03em;
+    }
+
+    .stat-divider {
+      width: 1px;
+      background: var(--border);
+      align-self: stretch;
+      display: none;
+    }
+
+    @media (min-width: 600px) {
+      .stat-divider {
+        display: block;
+      }
+    }
+
+    /* ─── Footer ─────────────────────────────────────────────────────── */
+    footer {
+      padding: 4rem 0;
+      text-align: center;
+      border-top: 1px solid var(--border);
+      margin-top: 6rem;
+    }
+
+    .footer-name {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: 1.4rem;
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-tagline {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      margin-bottom: 1.75rem;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.75rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: var(--accent);
+    }
+
+    .footer-copy {
+      margin-top: 2.5rem;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      opacity: 0.6;
+    }
+
+    /* ─── Fade-in on scroll ──────────────────────────────────────────── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* ─── Responsive ─────────────────────────────────────────────────── */
+    @media (max-width: 850px) {
+      .hero-split {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        text-align: center;
+      }
+
+      .hero-content {
+        text-align: center;
+      }
+
+      .hero-cta {
+        justify-content: center;
+      }
+
+      .hero-image-container {
+        order: -1;
+      }
+    }
+
+    @media (max-width: 640px) {
+      header {
+        padding: 4rem 0 3rem;
+      }
+
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      h1 {
+        font-size: 2.2rem;
+      }
+
+      .bio {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Ambient Background -->
+  <div class="bg-orbs" aria-hidden="true">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+  <!-- Navigation -->
+  <nav id="nav" role="navigation" aria-label="Primary navigation">
+    <div class="nav-inner">
+      <div class="nav-brand">Faith <span>Olaniyi</span></div>
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li><a href="#research">Research</a></li>
+          <li><a href="#tools">Tools</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <a href="https://drive.google.com/file/d/1ku_fuCZdsL64_4u838zv3j2YkrRnRVcD/view?usp=sharing"
+          download="Faith_Olaniyi_CV.pdf" class="nav-cv-btn" title="Download Curriculum Vitae (PDF)">
+          <svg style="width:14px;height:14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+          CV (Download)
+        </a>
+      </div>
+    </div>
+  </nav>
+  <div class="container">
+    <!-- Hero Section -->
+    <header id="home">
+      <div class="hero-split">
+        <div class="hero-content">
+          <div class="hero-eyebrow">Open to MSc Research Opportunities</div>
+          <h1>Faith <em>Olaniyi</em></h1>
+          <p class="subtitle">Emerging Health Data Scientist &amp; AI Researcher</p>
+          <p class="bio">
+            I am a Computer Science graduate dedicated to transforming healthcare systems in Africa
+            through data-driven research. My work lies at the intersection of
+            <strong style="color:var(--text-primary)">Machine Learning, Artificial Intelligence, and Public
+              Health</strong>.
+            I build predictive models and analyze large-scale health data &mdash; from child malnutrition
+            trends to environmental health factors &mdash; to support clinical decision-making. I am currently
+            preparing for a research-intensive MSc in Health Informatics and Data Science to further
+            bridge the gap between computational systems and accessible healthcare.
+          </p>
+          <div class="hero-cta">
+            <a href="#research" class="btn btn-primary" id="btn-view-research">View Research &darr;</a>
+            <a href="https://wa.me/2348160544161" class="btn btn-outline" id="btn-whatsapp" target="_blank"
+              rel="noopener">
+              <svg style="width:16px;height:16px;fill:currentColor;" viewBox="0 0 24 24">
+                <path
+                  d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.455L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.37 9.864-9.799.002-2.63-1.023-5.101-2.885-6.966C16.59 1.977 14.113.953 11.487.953c-5.442 0-9.866 4.372-9.87 9.802 0 1.814.49 3.59 1.417 5.132l-.994 3.63 3.738-.968c1.517.828 3.086 1.258 4.279 1.258zm9.103-6.914c-.267-.134-1.585-.783-1.83-.873-.245-.089-.423-.134-.6.134-.178.269-.69.873-.846 1.051-.156.178-.311.201-.578.067-.267-.134-1.13-.417-2.153-1.331-.794-.71-1.331-1.587-1.486-1.854-.156-.267-.017-.411.116-.544.12-.12.267-.311.4-.467.13-.156.178-.267.267-.446.089-.178.045-.335-.022-.469-.067-.134-.6-1.446-.823-1.983-.217-.523-.456-.453-.6-.461-.133-.008-.289-.011-.444-.011-.156 0-.411.058-.627.294-.216.236-.827.809-.827 1.973 0 1.164.846 2.286.963 2.443.118.156 1.664 2.541 4.032 3.561.563.243 1.002.387 1.344.497.566.18 1.082.155 1.49.094.455-.068 1.585-.648 1.808-1.272.223-.624.223-1.159.156-1.272-.069-.112-.246-.178-.513-.312z" />
+              </svg>
+              WhatsApp Contact
+            </a>
+          </div>
+        </div>
+        <div class="hero-image-container">
+          <div class="profile-glow"></div>
+          <div class="profile-frame">
+            <img src="Faith Photo.jpg" alt="Faith Olaniyi portrait" class="profile-image" />
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- Stats Strip -->
+    <div class="stats-strip fade-in" id="stats-strip">
+      <div class="stat-item">
+        <div class="stat-number">6</div>
+        <div class="stat-label">Research Projects</div>
+      </div>
+      <div class="stat-divider" aria-hidden="true"></div>
+      <div class="stat-item">
+        <div class="stat-number">91.67%</div>
+        <div class="stat-label">Thesis Prediction Accuracy</div>
+      </div>
+      <div class="stat-divider" aria-hidden="true"></div>
+      <div class="stat-item">
+        <div class="stat-number">2</div>
+        <div class="stat-label">Countries Studied</div>
+      </div>
+      <div class="stat-divider" aria-hidden="true"></div>
+      <div class="stat-item">
+        <div class="stat-number">&infin;</div>
+        <div class="stat-label">Drive to Improve Healthcare</div>
+      </div>
+    </div>
+    <!-- Clinical AI & Public Health Research -->
+    <section id="research" aria-labelledby="section-research-title">
+      <div class="section-header fade-in">
+        <div class="section-label">Primary Research</div>
+        <h2 class="section-title" id="section-research-title">Clinical AI &amp; Public Health Analytics</h2>
+      </div>
+      <div class="project-grid">
+        <!-- Card 1: Child Malnutrition -->
+        <article class="card fade-in" id="card-malnutrition" aria-label="Child Malnutrition Analysis project">
+          <div class="card-icon" aria-hidden="true">&#x1F4CA;</div>
+          <h3>Child Malnutrition Prevalence &mdash; Nigeria</h3>
+          <p>Analyzed 2024 Demographic and Health Surveys (DHS) data to map the distribution and severity of child
+            malnutrition across Nigeria, providing empirical, data-driven insights for targeted public health
+            interventions and policy.</p>
+          <div class="tags">
+            <span class="tag">Python</span>
+            <span class="tag">Epidemiology</span>
+            <span class="tag">DHS Data</span>
+            <span class="tag">GIS Mapping</span>
+          </div>
+          <div class="card-actions">
+            <a href="https://github.com/faithopia21/child-malnutrition-nigeria" target="_blank" rel="noopener"
+              class="card-link" title="View Source Code on GitHub">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+              </svg>
+              GitHub Code
+            </a>
+          </div>
+        </article>
+        <!-- Card 2: Fingerprint Malnutrition (indigo) -->
+        <article class="card indigo fade-in" id="card-fingerprint"
+          aria-label="Fingerprint Malnutrition Predictor project">
+          <div class="card-icon" aria-hidden="true">&#x1FAB6;</div>
+          <h3>Fingerprint-Based Malnutrition Risk Predictor</h3>
+          <p>Developed a desktop application utilizing biometric fingerprint data to assist community health workers and
+            field researchers in predicting malnutrition risk levels in low-resource, clinical settings across Africa.
+          </p>
+          <div class="tags">
+            <span class="tag">Python</span>
+            <span class="tag">Biometrics</span>
+            <span class="tag">Predictive Modeling</span>
+            <span class="tag">Low-Resource AI</span>
+          </div>
+          <div class="card-actions">
+            <a href="https://github.com/faithopia21/Fingerprint-Based-Malnutrition-Risk-Prediction-System"
+              target="_blank" rel="noopener" class="card-link" title="View Source Code on GitHub">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+              </svg>
+              GitHub Code
+            </a>
+          </div>
+        </article>
+        <!-- Card 3: Diabetes Prediction -->
+        <article class="card fade-in" id="card-diabetes" aria-label="Clinical Diabetes Risk Prediction project">
+          <div class="card-icon" aria-hidden="true">&#x1FA7A;</div>
+          <h3>Clinical Diabetes Risk Prediction</h3>
+          <p>Engineered a machine learning web application to predict early-stage diabetes risk utilizing specific
+            clinical indicators, laboratory values, and patient demographic records to support frontline clinical
+            decision-making.</p>
+          <div class="tags">
+            <span class="tag">Scikit-learn</span>
+            <span class="tag">Streamlit</span>
+            <span class="tag">Machine Learning</span>
+            <span class="tag">Clinical Informatics</span>
+          </div>
+          <div class="card-actions">
+            <a href="https://github.com/faithopia21/diabetes-prediction-app" target="_blank" rel="noopener"
+              class="card-link" title="View Source Code on GitHub">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+              </svg>
+              GitHub Code
+            </a>
+            <a href="https://diabetes-prediction-app.streamlit.app/" target="_blank" rel="noopener" class="card-link"
+              title="Open Deployed Web Application">
+              <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" fill="none">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" y1="14" x2="21" y2="3"></line>
+              </svg>
+              Live Demo
+            </a>
+          </div>
+        </article>
+        <!-- Card 4: Medical Insurance Cost (emerald) -->
+        <article class="card emerald fade-in" id="card-insurance" aria-label="Medical Insurance Cost Modeling project">
+          <div class="card-icon" aria-hidden="true">&#x1F48A;</div>
+          <h3>Medical Insurance Cost Modeling</h3>
+          <p>Built robust predictive regression models leveraging patient demographics, lifestyle factors, and health
+            indicators to analyze, forecast, and optimize medical insurance charges &mdash; informing equitable health
+            economics policy.</p>
+          <div class="tags">
+            <span class="tag">Regression Models</span>
+            <span class="tag">Health Economics</span>
+            <span class="tag">Predictive Analytics</span>
+          </div>
+          <div class="card-actions">
+            <a href="https://github.com/faithopia21/medical-insurance-cost-prediction" target="_blank" rel="noopener"
+              class="card-link" title="View Source Code on GitHub">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+              </svg>
+              GitHub Code
+            </a>
+          </div>
+        </article>
+        <!-- Card 5: Nairobi Air Quality (indigo) -->
+        <article class="card indigo fade-in" id="card-airquality" aria-label="Nairobi Air Quality project">
+          <div class="card-icon" aria-hidden="true">&#x1F30D;</div>
+          <h3>Nairobi Air Quality Time-Series Analysis</h3>
+          <p>Conducted time-series analysis on particulate matter (PM&#x2082;.&#x2085;), humidity, and temperature data
+            from low-cost IoT sensors across Nairobi to study environmental health impacts and pollution exposure in
+            urban East Africa.</p>
+          <div class="tags">
+            <span class="tag">Time-Series</span>
+            <span class="tag">Environmental Health</span>
+            <span class="tag">IoT Sensors</span>
+            <span class="tag">Urban Health</span>
+          </div>
+          <div class="card-actions">
+            <a href="https://github.com/faithopia21/nairobi-air-quality-timeseries" target="_blank" rel="noopener"
+              class="card-link" title="View Source Code on GitHub">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+              </svg>
+              GitHub Code
+            </a>
+          </div>
+        </article>
+      </div>
+    </section>
+    <div class="section-divider" aria-hidden="true"></div>
+    <!-- Tools & Engineering -->
+    <section id="tools" aria-labelledby="section-tools-title">
+      <div class="section-header fade-in">
+        <div class="section-label">Supporting Work</div>
+        <h2 class="section-title" id="section-tools-title">Tools &amp; Engineering</h2>
+      </div>
+      <div class="project-grid">
+        <!-- GradOS Card (emerald) -->
+        <article class="card emerald fade-in" id="card-grados" aria-label="GradOS project">
+          <div class="card-icon" aria-hidden="true">&#x1F393;</div>
+          <h3>GradOS &mdash; Graduate Application OS</h3>
+          <p>Developed a comprehensive workspace application to help researchers and graduate applicants efficiently
+            manage application lifecycles, track deadlines, organize documentation, and navigate the complexity of
+            competitive MSc and PhD programs.</p>
+          <div class="tags">
+            <span class="tag">TypeScript</span>
+            <span class="tag">Web Application</span>
+            <span class="tag">Productivity</span>
+          </div>
+          <div class="card-actions">
+            <a href="https://github.com/faithopia21/grados" target="_blank" rel="noopener" class="card-link"
+              title="View Source Code on GitHub">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+              </svg>
+              GitHub Code
+            </a>
+            <a href="https://faithopia21.github.io/grados" target="_blank" rel="noopener" class="card-link"
+              title="Open Deployed Web Application">
+              <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" fill="none">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" y1="14" x2="21" y2="3"></line>
+              </svg>
+              Live Demo
+            </a>
+          </div>
+        </article>
+      </div>
+    </section>
+  </div>
+  <!-- Footer -->
+  <footer id="contact">
+    <div class="container">
+      <div class="footer-name">Faith Olaniyi</div>
+      <div class="footer-tagline">Health Data Scientist &amp; AI Researcher &middot; Bridging computation and accessible
+        healthcare in Africa</div>
+      <div class="footer-links">
+        <a href="mailto:olaniyifaitholuwanifemi@gmail.com" id="footer-email">
+          <svg style="width:16px;height:16px;fill:currentColor;" viewBox="0 0 24 24">
+            <path
+              d="M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.036l-9.518 7.713-9.518-7.713zm5.694 4.54l3.824 3.096 3.83-3.102 5.612 8.466h-18.892l5.626-8.46zm9.201 1.389l4.623-3.746v9.458l-4.623-5.712z" />
+          </svg>
+          Email
+        </a>
+        <a href="https://linkedin.com/in/faithopia" id="footer-linkedin" target="_blank" rel="noopener">
+          <svg style="width:16px;height:16px;fill:currentColor;" viewBox="0 0 24 24">
+            <path
+              d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+          </svg>
+          LinkedIn
+        </a>
+        <a href="https://github.com/faithopia21" id="footer-github" target="_blank" rel="noopener">
+          <svg style="width:16px;height:16px;fill:currentColor;" viewBox="0 0 24 24">
+            <path
+              d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+          </svg>
+          GitHub
+        </a>
+        <a href="https://wa.me/2348160544161" id="footer-whatsapp" target="_blank" rel="noopener">
+          <svg style="width:16px;height:16px;fill:currentColor;" viewBox="0 0 24 24">
+            <path
+              d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.455L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.37 9.864-9.799.002-2.63-1.023-5.101-2.885-6.966C16.59 1.977 14.113.953 11.487.953c-5.442 0-9.866 4.372-9.87 9.802 0 1.814.49 3.59 1.417 5.132l-.994 3.63 3.738-.968c1.517.828 3.086 1.258 4.279 1.258zm9.103-6.914c-.267-.134-1.585-.783-1.83-.873-.245-.089-.423-.134-.6.134-.178.269-.69.873-.846 1.051-.156.178-.311.201-.578.067-.267-.134-1.13-.417-2.153-1.331-.794-.71-1.331-1.587-1.486-1.854-.156-.267-.017-.411.116-.544.12-.12.267-.311.4-.467.13-.156.178-.267.267-.446.089-.178.045-.335-.022-.469-.067-.134-.6-1.446-.823-1.983-.217-.523-.456-.453-.6-.461-.133-.008-.289-.011-.444-.011-.156 0-.411.058-.627.294-.216.236-.827.809-.827 1.973 0 1.164.846 2.286.963 2.443.118.156 1.664 2.541 4.032 3.561.563.243 1.002.387 1.344.497.566.18 1.082.155 1.49.094.455-.068 1.585-.648 1.808-1.272.223-.624.223-1.159.156-1.272-.069-.112-.246-.178-.513-.312z" />
+          </svg>
+          WhatsApp
+        </a>
+      </div>
+      <p class="footer-copy">&copy; 2026 Faith Olaniyi. Crafted with intention.</p>
+    </div>
+  </footer>
+  <script>
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const siblings = entry.target.parentElement.querySelectorAll('.fade-in');
+            siblings.forEach((el, idx) => {
+              setTimeout(() => el.classList.add('visible'), idx * 90);
+            });
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12 }
+    );
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+</body>
+
+</html>
