@@ -35,15 +35,15 @@
   <header id="header" class="fixed-top">
     <div class="container-fluid d-flex justify-content-between align-items-center">
 
-      <h1 class="logo me-auto me-lg-0"><a href="index.html">FAITH</a></h1>
+      <h1 class="logo me-auto me-lg-0"><a href="index.html">&lt;/&gt; FAITH <span>OLANIYI</span></a></h1>
 
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About</a></li>
+          <li><a class="active" href="portfolio.html">Portfolio</a></li>
           <li><a href="resume.html">Resume</a></li>
           <li><a href="services.html">Services</a></li>
-          <li><a class="active" href="portfolio.html">Portfolio</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
@@ -53,8 +53,8 @@
         <a href="https://github.com/faithopia21" class="github" target="_blank" rel="noopener" title="GitHub"><i class="bi bi-github"></i></a>
         <a href="https://linkedin.com/in/faithopia" class="linkedin" target="_blank" rel="noopener" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
         <a href="https://wa.me/2348160544161" class="whatsapp" target="_blank" rel="noopener" title="WhatsApp"><i class="bi bi-whatsapp"></i></a>
-        <a href="mailto:olaniyifaitholuwanifemi@gmail.com" class="email" title="Email"><i class="bi bi-envelope"></i></a>
-        <a href="Faith_Olaniyi_CV.pdf" download="Faith_Olaniyi_CV.pdf" class="btn-cv-download ms-3" title="Download Curriculum Vitae (PDF)">
+        <a href="mailto:faith.n.olaniyi@gmail.com" class="email" title="Work Email"><i class="bi bi-envelope"></i></a>
+        <a href="https://drive.google.com/file/d/1ku_fuCZdsL64_4u838zv3j2YkrRnRVcD/view?usp=sharing" target="_blank" rel="noopener" class="btn-cv-download ms-3" title="View Curriculum Vitae (Google Drive)">
           <i class="bi bi-download"></i> <span>CV</span>
         </a>
       </div>
@@ -71,96 +71,181 @@
 
         <div class="section-title">
           <h2>Portfolio</h2>
-          <!-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p> -->
         </div>
 
         <div class="row" data-aos="fade-up" data-aos-delay="100">
           <div class="col-lg-12 d-flex justify-content-center">
             <ul id="portfolio-flters">
               <li data-filter="*" class="filter-active">All</li>
-              <li data-filter=".filter-research">Research &amp; AI</li>
-              <li data-filter=".filter-eng">Supporting Engineering</li>
+              <li data-filter=".filter-public-health">Public Health &amp; Epidemiology</li>
+              <li data-filter=".filter-clinical">Clinical Predictive Modelling</li>
+              <li data-filter=".filter-tools">Research &amp; Productivity Tools</li>
             </ul>
           </div>
         </div>
 
         <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
 
-          <div class="col-lg-4 col-md-6 portfolio-item filter-research">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/portfolio-1.jpg" class="img-fluid" alt="Child Malnutrition Nigeria">
-              <div class="portfolio-info">
-                <h4>Child Malnutrition Prevalence</h4>
-                <p>Python | GIS Mapping | DHS Data</p>
-                <div class="portfolio-links">
-                  <a href="https://github.com/faithopia21/child-malnutrition-nigeria" target="_blank" rel="noopener" title="GitHub Code"><i class="bx bxl-github"></i></a>
+          <!-- Project: Child Malnutrition Nigeria -->
+          <div class="col-lg-12 portfolio-item filter-public-health">
+            <div class="portfolio-item-content">
+              <div class="project-header">
+                <div>
+                  <span class="project-badge research">Public Health &amp; Epidemiology</span>
+                  <h3 class="project-title">Child Malnutrition Analysis (Nigeria)</h3>
+                </div>
+                <div class="project-links">
+                  <a href="https://github.com/faithopia21/child-malnutrition-nigeria" target="_blank" rel="noopener" class="btn-github" title="GitHub Repository">
+                    <i class="bx bxl-github"></i> Repository
+                  </a>
+                </div>
+              </div>
+              <p class="project-description">
+                Analysed child malnutrition prevalence and distribution across Nigeria using 2024 Demographic and Health Surveys (DHS) data to support evidence-based public health interventions.
+              </p>
+              <div class="project-meta">
+                <div class="project-tags">
+                  <span class="tag"><i class="bx bx-code-alt"></i> Python</span>
+                  <span class="tag"><i class="bx bx-data"></i> Public Health Data</span>
                 </div>
               </div>
             </div>
           </div>
 
-          <div class="col-lg-4 col-md-6 portfolio-item filter-research">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/portfolio-2.jpg" class="img-fluid" alt="Fingerprint Malnutrition Risk Predictor">
-              <div class="portfolio-info">
-                <h4>Fingerprint Malnutrition Predictor</h4>
-                <p>Python | Biometrics | Desktop App</p>
-                <div class="portfolio-links">
-                  <a href="https://github.com/faithopia21/Fingerprint-Based-Malnutrition-Risk-Prediction-System" target="_blank" rel="noopener" title="GitHub Code"><i class="bx bxl-github"></i></a>
+          <!-- Project: Nairobi Air Quality Time Series -->
+          <div class="col-lg-12 portfolio-item filter-public-health">
+            <div class="portfolio-item-content">
+              <div class="project-header">
+                <div>
+                  <span class="project-badge research">Public Health &amp; Epidemiology</span>
+                  <h3 class="project-title">Nairobi Air Quality Time-Series</h3>
+                </div>
+                <div class="project-links">
+                  <a href="https://github.com/faithopia21/nairobi-air-quality-timeseries" target="_blank" rel="noopener" class="btn-github" title="GitHub Repository">
+                    <i class="bx bxl-github"></i> Repository
+                  </a>
+                </div>
+              </div>
+              <p class="project-description">
+                Conducted time-series analysis of particulate matter, humidity, and temperature data from low-cost sensors to observe environmental health trends in Nairobi.
+              </p>
+              <div class="project-meta">
+                <div class="project-tags">
+                  <span class="tag"><i class="bx bx-time-five"></i> Time-Series Analysis</span>
+                  <span class="tag"><i class="bx bx-cloud"></i> Environmental Health</span>
                 </div>
               </div>
             </div>
           </div>
 
-          <div class="col-lg-4 col-md-6 portfolio-item filter-research">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/portfolio-3.jpg" class="img-fluid" alt="Clinical Diabetes Risk Prediction">
-              <div class="portfolio-info">
-                <h4>Diabetes Risk Prediction</h4>
-                <p>Scikit-learn | Streamlit | Web App</p>
-                <div class="portfolio-links">
-                  <a href="https://github.com/faithopia21/diabetes-prediction-app" target="_blank" rel="noopener" title="GitHub Code"><i class="bx bxl-github"></i></a>
-                  <a href="https://diabetes-prediction-app.streamlit.app/" target="_blank" rel="noopener" title="Live Demo"><i class="bx bx-link-external"></i></a>
+          <!-- Project: Fingerprint-Based Malnutrition Risk Prediction System -->
+          <div class="col-lg-12 portfolio-item filter-clinical">
+            <div class="portfolio-item-content">
+              <div class="project-header">
+                <div>
+                  <span class="project-badge clinical">Clinical Predictive Modelling</span>
+                  <h3 class="project-title">Fingerprint-Based Malnutrition Risk Prediction</h3>
+                </div>
+                <div class="project-links">
+                  <a href="https://github.com/faithopia21/Fingerprint-Based-Malnutrition-Risk-Prediction-System" target="_blank" rel="noopener" class="btn-github" title="GitHub Repository">
+                    <i class="bx bxl-github"></i> Repository
+                  </a>
+                </div>
+              </div>
+              <p class="project-description">
+                Developed a desktop application utilising biometric data to assist community health workers and researchers in predicting early malnutrition risks.
+              </p>
+              <div class="project-meta">
+                <div class="project-tags">
+                  <span class="tag"><i class="bx bx-code-alt"></i> Python</span>
+                  <span class="tag"><i class="bx bx-fingerprint"></i> Biometrics</span>
                 </div>
               </div>
             </div>
           </div>
 
-          <div class="col-lg-4 col-md-6 portfolio-item filter-research">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/portfolio-7.jpg" class="img-fluid" alt="Medical Insurance Cost Modeling">
-              <div class="portfolio-info">
-                <h4>Medical Insurance Cost Modeling</h4>
-                <p>Regression | Health Economics</p>
-                <div class="portfolio-links">
-                  <a href="https://github.com/faithopia21/medical-insurance-cost-prediction" target="_blank" rel="noopener" title="GitHub Code"><i class="bx bxl-github"></i></a>
+          <!-- Project: Diabetes Risk Prediction App -->
+          <div class="col-lg-12 portfolio-item filter-clinical">
+            <div class="portfolio-item-content">
+              <div class="project-header">
+                <div>
+                  <span class="project-badge clinical">Clinical Predictive Modelling</span>
+                  <h3 class="project-title">Clinical Diabetes Risk Prediction</h3>
+                </div>
+                <div class="project-links">
+                  <a href="https://github.com/faithopia21/diabetes-prediction-app" target="_blank" rel="noopener" class="btn-github" title="GitHub Repository">
+                    <i class="bx bxl-github"></i> Repository
+                  </a>
+                  <a href="https://diabetes-prediction-app-faithopia21.streamlit.app/" target="_blank" rel="noopener" class="btn-live" title="Live Demo">
+                    <i class="bx bx-link-external"></i> Live Demo
+                  </a>
+                </div>
+              </div>
+              <p class="project-description">
+                Built a machine learning application using Python and scikit-learn to predict diabetes risk based on specific clinical indicators.
+              </p>
+              <div class="project-meta">
+                <div class="project-tags">
+                  <span class="tag"><i class="bx bx-brain"></i> Machine Learning</span>
+                  <span class="tag"><i class="bx bx-server"></i> Scikit-learn</span>
                 </div>
               </div>
             </div>
           </div>
 
-          <div class="col-lg-4 col-md-6 portfolio-item filter-research">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/portfolio-9.jpg" class="img-fluid" alt="Nairobi Air Quality Time-Series">
-              <div class="portfolio-info">
-                <h4>Nairobi Air Quality Analysis</h4>
-                <p>Time-Series | Environmental Health</p>
-                <div class="portfolio-links">
-                  <a href="https://github.com/faithopia21/nairobi-air-quality-timeseries" target="_blank" rel="noopener" title="GitHub Code"><i class="bx bxl-github"></i></a>
+          <!-- Project: Medical Insurance Cost Prediction -->
+          <div class="col-lg-12 portfolio-item filter-clinical">
+            <div class="portfolio-item-content">
+              <div class="project-header">
+                <div>
+                  <span class="project-badge clinical">Clinical Predictive Modelling</span>
+                  <h3 class="project-title">Medical Insurance Cost Modelling</h3>
+                </div>
+                <div class="project-links">
+                  <a href="https://github.com/faithopia21/medical-insurance-cost-prediction" target="_blank" rel="noopener" class="btn-github" title="GitHub Repository">
+                    <i class="bx bxl-github"></i> Repository
+                  </a>
+                  <a href="https://medical-annual-insurance-cost-predictor.streamlit.app/" target="_blank" rel="noopener" class="btn-live" title="Live Demo">
+                    <i class="bx bx-link-external"></i> Live Demo
+                  </a>
+                </div>
+              </div>
+              <p class="project-description">
+                Applied machine learning to patient demographics and health factors to analyse and predict medical insurance charges.
+              </p>
+              <div class="project-meta">
+                <div class="project-tags">
+                  <span class="tag"><i class="bx bx-line-chart"></i> Predictive Modelling</span>
+                  <span class="tag"><i class="bx bx-plus-medical"></i> Healthcare Economics</span>
                 </div>
               </div>
             </div>
           </div>
 
-          <div class="col-lg-4 col-md-6 portfolio-item filter-eng">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/portfolio-4.jpg" class="img-fluid" alt="GradOS Graduate Application OS">
-              <div class="portfolio-info">
-                <h4>GradOS Workspace</h4>
-                <p>TypeScript | Web App | Productivity</p>
-                <div class="portfolio-links">
-                  <a href="https://github.com/faithopia21/grados" target="_blank" rel="noopener" title="GitHub Code"><i class="bx bxl-github"></i></a>
-                  <a href="https://faithopia21.github.io/grados" target="_blank" rel="noopener" title="Live Demo"><i class="bx bx-link-external"></i></a>
+          <!-- Project: GradOS -->
+          <div class="col-lg-12 portfolio-item filter-tools">
+            <div class="portfolio-item-content">
+              <div class="project-header">
+                <div>
+                  <span class="project-badge engineering">Research &amp; Productivity Tools</span>
+                  <h3 class="project-title">GradOS</h3>
+                </div>
+                <div class="project-links">
+                  <a href="https://github.com/faithopia21/grados" target="_blank" rel="noopener" class="btn-github" title="GitHub Repository">
+                    <i class="bx bxl-github"></i> Repository
+                  </a>
+                  <a href="https://mygrados.vercel.app/" target="_blank" rel="noopener" class="btn-live" title="Live Demo">
+                    <i class="bx bx-link-external"></i> Live Demo
+                  </a>
+                </div>
+              </div>
+              <p class="project-description">
+                Developed an organisational web application to help prospective graduate students track deadlines, manage documents, and structure multiple university applications.
+              </p>
+              <div class="project-meta">
+                <div class="project-tags">
+                  <span class="tag"><i class="bx bx-code-alt"></i> TypeScript</span>
+                  <span class="tag"><i class="bx bx-globe"></i> Systems Design</span>
                 </div>
               </div>
             </div>
@@ -177,17 +262,10 @@
   <footer id="footer">
     <div class="container">
       <div class="copyright">
-        &copy; Copyright <strong><span>Faith</span></strong>. All Rights Reserved
-      </div>
-      <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/kelly-free-bootstrap-cv-resume-html-template/ -->
-        Designed with <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        &copy; Copyright 2026 <strong><span>Faith Olaniyi</span></strong>. All Rights Reserved
       </div>
     </div>
-  </footer><!-- End  Footer -->
+  </footer><!-- End Footer -->
 
   <div id="preloader"></div>
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>

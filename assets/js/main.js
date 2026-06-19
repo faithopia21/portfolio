@@ -1,9 +1,6 @@
 /**
-* Template Name: Kelly
-* Updated: May 30 2023 with Bootstrap v5.3.0
-* Template URL: https://bootstrapmade.com/kelly-free-bootstrap-cv-resume-html-template/
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
+* Portfolio Custom Main Script
+* Author: Faith Olaniyi
 */
 (function() {
   "use strict";
