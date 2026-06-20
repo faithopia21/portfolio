@@ -326,60 +326,60 @@ h1, h2, h3, h4, h5, h6 {
   .navbar ul {
     display: none;
   }
-}
 
-.navbar-mobile {
-  position: fixed;
-  overflow: hidden;
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
-  background: rgba(15, 23, 42, 0.95);
-  transition: var(--transition);
-  z-index: 999;
-}
+  #navbar.navbar-mobile {
+    position: fixed;
+    overflow: hidden;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: rgba(15, 23, 42, 0.95);
+    transition: var(--transition);
+    z-index: 999;
+  }
 
-.navbar-mobile .mobile-nav-toggle {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  color: #fff;
-}
+  #navbar.navbar-mobile .mobile-nav-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: #fff;
+  }
 
-.navbar-mobile ul {
-  display: block !important;
-  position: absolute;
-  top: 70px;
-  right: 20px;
-  bottom: 20px;
-  left: 20px;
-  padding: 20px 0;
-  border-radius: 12px;
-  background-color: var(--bg-secondary);
-  overflow-y: auto;
-  transition: var(--transition);
-  box-shadow: var(--shadow-lg);
-}
+  #navbar.navbar-mobile ul {
+    display: block !important;
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    bottom: 20px;
+    left: 20px;
+    padding: 20px 0;
+    border-radius: 12px;
+    background-color: var(--bg-secondary);
+    overflow-y: auto;
+    transition: var(--transition);
+    box-shadow: var(--shadow-lg);
+  }
 
-.navbar-mobile li {
-  padding: 15px 30px;
-}
+  #navbar.navbar-mobile li {
+    padding: 15px 30px;
+  }
 
-.navbar-mobile a,
-.navbar-mobile a:focus {
-  font-size: 16px;
-  color: var(--text-primary);
-}
+  #navbar.navbar-mobile a,
+  #navbar.navbar-mobile a:focus {
+    font-size: 16px;
+    color: var(--text-primary);
+  }
 
-.navbar-mobile a::before {
-  display: none !important;
-}
+  #navbar.navbar-mobile a::before {
+    display: none !important;
+  }
 
-.navbar-mobile a:hover,
-.navbar-mobile .active,
-.navbar-mobile li:hover>a {
-  color: var(--accent-color);
+  #navbar.navbar-mobile a:hover,
+  #navbar.navbar-mobile .active,
+  #navbar.navbar-mobile li:hover>a {
+    color: var(--accent-color);
+  }
 }
 
 /*--------------------------------------------------------------
