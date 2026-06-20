@@ -69,23 +69,46 @@
   }
 
   /**
-   * Mobile nav toggle
+   * Mobile nav — open/close drawer
+   * The overlay (#mobile-nav-overlay) is a sibling of #header in the DOM,
+   * so position:fixed is never constrained by #header's backdrop-filter.
    */
-  on('click', '.mobile-nav-toggle', function(e) {
-    select('#navbar').classList.toggle('navbar-mobile')
-    this.classList.toggle('bi-list')
-    this.classList.toggle('bi-x')
-  })
+  ;(function () {
+    const overlay  = select('#mobile-nav-overlay')
+    const drawer   = select('#mobile-nav-drawer')
+    const hamburger = select('.mobile-nav-toggle')   // <i> inside #navbar in header
+    const closeBtn  = select('.mobile-nav-close-icon') // <i> inside drawer
 
-  /**
-   * Mobile nav dropdowns activate
-   */
-  on('click', '.navbar .dropdown > a', function(e) {
-    if (select('#navbar').classList.contains('navbar-mobile')) {
-      e.preventDefault()
-      this.nextElementSibling.classList.toggle('dropdown-active')
+    if (!overlay || !drawer) return  // overlay not present (desktop fallback)
+
+    function openNav() {
+      overlay.classList.add('active')
+      overlay.setAttribute('aria-hidden', 'false')
+      select('body').classList.add('mobile-nav-active')
     }
-  }, true)
+
+    function closeNav() {
+      overlay.classList.remove('active')
+      overlay.setAttribute('aria-hidden', 'true')
+      select('body').classList.remove('mobile-nav-active')
+    }
+
+    // Hamburger in header → open drawer
+    if (hamburger) hamburger.addEventListener('click', openNav)
+
+    // X button inside drawer → close drawer
+    if (closeBtn) closeBtn.addEventListener('click', closeNav)
+
+    // Click on backdrop (overlay itself, not inside the drawer) → close
+    overlay.addEventListener('click', function (e) {
+      if (!drawer.contains(e.target)) closeNav()
+    })
+
+    // Each nav link closes the drawer before the browser navigates
+    select('#mobile-nav-drawer nav a', true).forEach(function (link) {
+      link.addEventListener('click', closeNav)
+    })
+  })()
 
   /**
    * Scrool with ofset on links with a class name .scrollto

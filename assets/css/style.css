@@ -308,78 +308,170 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 16px;
 }
 
-/* Mobile Nav Toggle */
+/* Mobile Nav Toggle (hamburger in header) */
 .mobile-nav-toggle {
   color: var(--text-primary);
   font-size: 28px;
   cursor: pointer;
   display: none;
   line-height: 0;
+  background: none;
+  border: none;
+  padding: 0;
   transition: var(--transition);
 }
 
 @media (max-width: 991px) {
+  /* Show hamburger; hide desktop nav links */
   .mobile-nav-toggle {
     display: block;
   }
-
   .navbar ul {
     display: none;
   }
 
-  #navbar.navbar-mobile {
-    position: fixed;
+  /* Prevent page from scrolling behind the open drawer */
+  body.mobile-nav-active {
     overflow: hidden;
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    background: rgba(15, 23, 42, 0.95);
-    transition: var(--transition);
-    z-index: 999;
   }
+}
 
-  #navbar.navbar-mobile .mobile-nav-toggle {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    color: #fff;
+/* Desktop: always hide the overlay regardless */
+@media (min-width: 992px) {
+  #mobile-nav-overlay {
+    visibility: hidden !important;
+    pointer-events: none !important;
+    opacity: 0 !important;
   }
+}
 
-  #navbar.navbar-mobile ul {
-    display: block !important;
-    position: absolute;
-    top: 70px;
-    right: 20px;
-    bottom: 20px;
-    left: 20px;
-    padding: 20px 0;
-    border-radius: 12px;
-    background-color: var(--bg-secondary);
-    overflow-y: auto;
-    transition: var(--transition);
-    box-shadow: var(--shadow-lg);
-  }
+/* ─── Mobile Nav Overlay (backdrop + drawer container) ─── */
+#mobile-nav-overlay {
+  visibility: hidden;
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.5);
+  backdrop-filter: blur(3px);
+  z-index: 1000;           /* > #header z-index: 997 */
+  opacity: 0;
+  transition: opacity 0.25s ease, visibility 0s linear 0.25s;
+}
 
-  #navbar.navbar-mobile li {
-    padding: 15px 30px;
-  }
+#mobile-nav-overlay.active {
+  visibility: visible;
+  pointer-events: auto;
+  opacity: 1;
+  transition: opacity 0.25s ease, visibility 0s linear 0s;
+}
 
-  #navbar.navbar-mobile a,
-  #navbar.navbar-mobile a:focus {
-    font-size: 16px;
-    color: var(--text-primary);
-  }
+/* ─── Slide-out Drawer Panel ─── */
+#mobile-nav-drawer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 290px;
+  max-width: 88%;
+  background: var(--card-bg);
+  border-left: 1px solid var(--border-color);
+  box-shadow: -6px 0 32px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  transform: translateX(100%);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
 
-  #navbar.navbar-mobile a::before {
-    display: none !important;
-  }
+#mobile-nav-overlay.active #mobile-nav-drawer {
+  transform: translateX(0);
+}
 
-  #navbar.navbar-mobile a:hover,
-  #navbar.navbar-mobile .active,
-  #navbar.navbar-mobile li:hover>a {
-    color: var(--accent-color);
-  }
+/* ─── Close Button (X) — top of drawer, not floating ─── */
+#mobile-nav-close {
+  position: sticky;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 18px 20px 12px 20px;
+  background: var(--card-bg);
+  z-index: 1;
+  flex-shrink: 0;
+}
+
+.mobile-nav-close-icon {
+  font-size: 26px;
+  color: var(--text-muted);
+  cursor: pointer;
+  line-height: 1;
+  padding: 6px;
+  border-radius: 8px;
+  transition: var(--transition);
+  background: none;
+  border: none;
+}
+
+.mobile-nav-close-icon:hover {
+  color: var(--accent-color);
+  background: var(--accent-light);
+}
+
+/* ─── Nav Links inside Drawer ─── */
+#mobile-nav-drawer nav {
+  flex: 1;
+  padding: 8px 0 30px 0;
+}
+
+#mobile-nav-drawer nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+#mobile-nav-drawer nav ul li {
+  border-bottom: 1px solid var(--border-color);
+}
+
+#mobile-nav-drawer nav ul li:last-child {
+  border-bottom: none;
+}
+
+#mobile-nav-drawer nav ul li a {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 28px;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: var(--transition);
+  white-space: nowrap;
+}
+
+#mobile-nav-drawer nav ul li a::before {
+  content: '';
+  display: block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--border-color);
+  flex-shrink: 0;
+  transition: var(--transition);
+}
+
+#mobile-nav-drawer nav ul li a:hover,
+#mobile-nav-drawer nav ul li a.active {
+  color: var(--accent-color);
+  background: var(--accent-light);
+}
+
+#mobile-nav-drawer nav ul li a:hover::before,
+#mobile-nav-drawer nav ul li a.active::before {
+  background: var(--accent-color);
 }
 
 /*--------------------------------------------------------------
