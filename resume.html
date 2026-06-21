@@ -6,8 +6,8 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
   <title>Resume | Faith Olaniyi</title>
-  <meta content="Faith Olaniyi's resume: Emerging Health Data Scientist and AI Researcher experienced in Python, Machine Learning, and Public Health data analysis." name="description">
-  <meta content="Health Data Science, AI Research, Machine Learning, Public Health, Child Malnutrition, Streamlit, Python" name="keywords">
+  <meta content="Faith Olaniyi's resume: Computer Science graduate with interests in healthcare analytics, machine learning, and AI-driven approaches to public health challenges." name="description">
+  <meta content="Health Data Science, AI Research, Machine Learning, Public Health, Child Malnutrition, Streamlit, Python, Resume" name="keywords">
 
   <!-- Favicons -->
   <link href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🩺</text></svg>" rel="icon">
@@ -25,6 +25,338 @@
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
+
+  <style>
+    /* ── Resume page supplemental styles ── */
+
+    /* Intro card at top of page */
+    .resume-intro-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 36px 40px;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 40px;
+    }
+
+    .resume-intro-card h2 {
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--text-primary);
+      margin-bottom: 4px;
+    }
+
+    .resume-intro-card .intro-meta {
+      font-size: 14px;
+      color: var(--text-muted);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 16px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .resume-intro-card .intro-meta a {
+      color: var(--text-muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: var(--transition);
+    }
+
+    .resume-intro-card .intro-meta a:hover {
+      color: var(--accent-color);
+    }
+
+    .resume-intro-card .intro-summary {
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.75;
+      margin: 0;
+    }
+
+    /* Section wrapper cards */
+    .resume-section-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 36px 40px;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 30px;
+    }
+
+    .resume-section-card .resume-title {
+      font-size: 19px;
+      font-weight: 700;
+      color: var(--text-primary);
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-top: 0;
+      margin-bottom: 28px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding-bottom: 14px;
+      border-bottom: 2px solid var(--border-color);
+    }
+
+    .resume-section-card .resume-title i {
+      font-size: 18px;
+      color: var(--accent-color);
+    }
+
+    /* Education block */
+    .edu-block h4 {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 2px;
+    }
+
+    .edu-block .edu-institution {
+      font-size: 14px;
+      color: var(--accent-color);
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .edu-block .edu-dates {
+      display: inline-block;
+      background: var(--accent-light);
+      color: var(--accent-color);
+      font-size: 13px;
+      font-weight: 600;
+      padding: 3px 12px;
+      border-radius: 4px;
+      margin-bottom: 14px;
+    }
+
+    .edu-block .coursework-label {
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .edu-block .coursework-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .edu-block .coursework-pills span {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      color: var(--text-secondary);
+      font-size: 13px;
+      padding: 4px 12px;
+      border-radius: 6px;
+    }
+
+    /* Experience items use existing .resume-item/.resume-title but scoped inside card */
+    .resume-section-card .exp-item {
+      padding: 0 0 28px 24px;
+      margin-top: -2px;
+      border-left: 2px solid var(--accent-light);
+      position: relative;
+      transition: var(--transition);
+    }
+
+    .resume-section-card .exp-item:hover {
+      border-left-color: var(--accent-color);
+    }
+
+    .resume-section-card .exp-item::before {
+      content: "";
+      position: absolute;
+      width: 13px;
+      height: 13px;
+      border-radius: 50%;
+      left: -8px;
+      top: 4px;
+      background: var(--bg-color);
+      border: 2px solid var(--accent-color);
+      transition: var(--transition);
+    }
+
+    .resume-section-card .exp-item:hover::before {
+      background: var(--accent-color);
+    }
+
+    .resume-section-card .exp-item:last-child {
+      padding-bottom: 0;
+      border-left: 0;
+    }
+
+    .resume-section-card .exp-item h4 {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 2px;
+    }
+
+    .resume-section-card .exp-item .exp-project {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      font-style: italic;
+      margin-bottom: 2px;
+    }
+
+    .resume-section-card .exp-item .exp-org {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+
+    .resume-section-card .exp-item h5 {
+      display: inline-block;
+      font-size: 13px;
+      background: var(--accent-light);
+      padding: 3px 12px;
+      font-weight: 600;
+      color: var(--accent-color);
+      border-radius: 4px;
+      margin-bottom: 12px;
+    }
+
+    .resume-section-card .exp-item ul {
+      padding-left: 18px;
+      margin-top: 8px;
+      margin-bottom: 0;
+    }
+
+    .resume-section-card .exp-item ul li {
+      font-size: 14px;
+      color: var(--text-secondary);
+      padding-bottom: 7px;
+      line-height: 1.6;
+    }
+
+    /* Skills categories */
+    .skills-category {
+      margin-bottom: 20px;
+    }
+
+    .skills-category:last-child {
+      margin-bottom: 0;
+    }
+
+    .skills-category-label {
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+    }
+
+    /* Certifications list */
+    .cert-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .cert-list li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 14px;
+      color: var(--text-secondary);
+    }
+
+    .cert-list li::before {
+      content: "";
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent-color);
+      flex-shrink: 0;
+    }
+
+    .cert-issuer {
+      color: var(--text-muted);
+      font-size: 13px;
+      margin-left: 4px;
+    }
+
+    /* Selected projects (minimal — no links) */
+    .selected-project-item {
+      padding: 18px 20px;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      margin-bottom: 12px;
+      transition: var(--transition);
+    }
+
+    .selected-project-item:last-of-type {
+      margin-bottom: 0;
+    }
+
+    .selected-project-item:hover {
+      border-color: var(--accent-color);
+      background: var(--bg-color);
+    }
+
+    .selected-project-item h5 {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 4px;
+    }
+
+    .selected-project-item p {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    /* Download CTA bar */
+    .resume-cta-bar {
+      background: linear-gradient(135deg, var(--accent-light) 0%, var(--bg-secondary) 100%);
+      border: 1px solid var(--accent-color);
+      border-radius: 12px;
+      padding: 30px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 10px;
+    }
+
+    .resume-cta-bar p {
+      margin: 0;
+      font-size: 15px;
+      color: var(--text-secondary);
+    }
+
+    .resume-cta-bar strong {
+      color: var(--text-primary);
+    }
+
+    @media (max-width: 768px) {
+      .resume-intro-card,
+      .resume-section-card {
+        padding: 24px 20px;
+      }
+      .resume-cta-bar {
+        padding: 24px 20px;
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -49,7 +381,7 @@
 
       <div class="header-social-links d-flex align-items-center">
         <a href="https://github.com/faithopia21" class="github" target="_blank" rel="noopener" title="GitHub"><i class="bi bi-github"></i></a>
-        <a href="https://linkedin.com/in/faithopia" class="linkedin" target="_blank" rel="noopener" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
+        <a href="https://www.linkedin.com/in/faith-oluwanifemi-olaniyi/" class="linkedin" target="_blank" rel="noopener" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
         <a href="https://drive.google.com/file/d/1ku_fuCZdsL64_4u838zv3j2YkrRnRVcD/view?usp=sharing" target="_blank" rel="noopener" class="header-cv-link ms-3" title="View Curriculum Vitae (Google Drive)">
           <span class="d-none d-md-inline">Curriculum Vitae</span>
           <span class="d-inline d-md-none">CV</span>
@@ -81,79 +413,219 @@
   </div><!-- End Mobile Nav Overlay -->
 
   <main id="main">
+
+    <!-- ======= Resume Section ======= -->
     <section id="resume" class="resume">
       <div class="container" data-aos="fade-up">
+
         <div class="section-title">
           <h2>Resume</h2>
-          <p>Aspiring Health Data Scientist focused on applying data science, machine learning, and AI to address public health challenges.</p>
+          <p>Computer Science graduate with interests in healthcare analytics, machine learning, and AI-driven approaches to public health challenges.</p>
         </div>
 
-        <div class="row">
-          <div class="col-lg-6">
-            <h3 class="resume-title">Experience</h3>
-            <div class="resume-item">
-              <h4>Data Analytics Tutor</h4>
-              <h5>Student Christian Movement of Nigeria</h5>
-              <ul>
-                <li>Designed curriculum and tutored 30+ students in foundational data analytics, improving practical technical literacy.</li>
-              </ul>
-            </div>
-            <div class="resume-item">
-              <h4>Data Analytics Intern</h4>
-              <h5>Business Codes & Technologies</h5>
-              <ul>
-                <li>Cleaned, transformed, and analysed 6,000+ entry datasets using Python and SQL to extract actionable insights.</li>
-              </ul>
-            </div>
-            <div class="resume-item">
-              <h4>Data Analytics Intern</h4>
-              <h5>NSDIC</h5>
-              <ul>
-                <li>Supported healthcare analytics and predictive modelling initiatives to inform evidence-based decision-making.</li>
-              </ul>
-            </div>
-
-            <h3 class="resume-title mt-4">Technical Skills</h3>
-            <div class="resume-item">
-              <div class="project-tags">
-                <span class="tag">Python</span>
-                <span class="tag">ML/Scikit-learn</span>
-                <span class="tag">SQL</span>
-                <span class="tag">Streamlit</span>
-                <span class="tag">Excel/Power BI</span>
-              </div>
-            </div>
-            
-            <div class="mt-4">
-              <a href="https://drive.google.com/file/d/1ku_fuCZdsL64_4u838zv3j2YkrRnRVcD/view?usp=sharing" target="_blank" rel="noopener" class="btn-primary-blue">
-                <i class="bi bi-download"></i> Download Full CV (PDF)
-              </a>
-            </div>
+        <!-- ── Intro / Summary Card ── -->
+        <div class="resume-intro-card" data-aos="fade-up" data-aos-delay="50">
+          <h2>Faith Olaniyi</h2>
+          <div class="intro-meta">
+            <span><i class="bi bi-geo-alt"></i> Oyo State, Nigeria</span>
+            <a href="tel:+2348160544161"><i class="bi bi-telephone"></i> +2348160544161</a>
+            <a href="mailto:olaniyifaitholuwanifemi@gmail.com"><i class="bi bi-envelope"></i> olaniyifaitholuwanifemi@gmail.com</a>
+            <a href="https://www.linkedin.com/in/faith-oluwanifemi-olaniyi/" target="_blank" rel="noopener"><i class="bi bi-linkedin"></i> LinkedIn</a>
+            <a href="https://github.com/faithopia21" target="_blank" rel="noopener"><i class="bi bi-github"></i> GitHub</a>
           </div>
-
-          <div class="col-lg-6">
-            <h3 class="resume-title">Live Projects & Demos</h3>
-            <div class="resume-item">
-              <h4>Clinical Diabetes Risk Prediction</h4>
-              <p>Built a machine learning application using Python and scikit-learn to predict diabetes risk based on specific clinical indicators.</p>
-              <div class="mt-2">
-                <a href="https://github.com/faithopia21/diabetes-prediction-app" target="_blank" rel="noopener" class="btn-secondary-blue btn-sm me-2"><i class="bx bxl-github"></i> Repository</a>
-                <a href="https://diabetes-prediction-app-faithopia21.streamlit.app/" target="_blank" rel="noopener" class="btn-primary-blue btn-sm"><i class="bx bx-link-external"></i> Live Demo</a>
-              </div>
-            </div>
-            <div class="resume-item">
-              <h4>Medical Insurance Cost Modelling</h4>
-              <p>Applied machine learning to patient demographics and health factors to analyse and predict medical insurance charges.</p>
-              <div class="mt-2">
-                <a href="https://github.com/faithopia21/medical-insurance-cost-prediction" target="_blank" rel="noopener" class="btn-secondary-blue btn-sm me-2"><i class="bx bxl-github"></i> Repository</a>
-                <a href="https://medical-annual-insurance-cost-predictor.streamlit.app/" target="_blank" rel="noopener" class="btn-primary-blue btn-sm"><i class="bx bx-link-external"></i> Live Demo</a>
-              </div>
-            </div>
-          </div>
+          <p class="intro-summary">
+            Computer Science graduate with interests in healthcare analytics, machine learning, and AI-driven approaches to public health challenges. Experience building predictive health models, analysing healthcare-related datasets, and translating data into practical insights. Research experience includes developing a fingerprint-based malnutrition risk prediction system and applying machine learning techniques to health-focused problems. Interested in the use of data and AI to support early detection, preventive healthcare, and decision-making in resource-constrained settings.
+          </p>
         </div>
+
+        <div class="row g-4">
+
+          <!-- ── Left Column ── -->
+          <div class="col-lg-6">
+
+            <!-- Education -->
+            <div class="resume-section-card" data-aos="fade-up" data-aos-delay="100">
+              <div class="resume-title"><i class="bi bi-mortarboard"></i> Education</div>
+              <div class="edu-block">
+                <h4>Bachelor of Technology (B.Tech), Computer Science</h4>
+                <p class="edu-institution">Ladoke Akintola University of Technology (LAUTECH), Ogbomoso</p>
+                <span class="edu-dates">April 2021 – September 2025</span>
+                <p class="coursework-label">Relevant Coursework</p>
+                <div class="coursework-pills">
+                  <span>Artificial Intelligence</span>
+                  <span>Data Structures and Algorithms</span>
+                  <span>Statistics for Computing and Informatics</span>
+                  <span>Research Methodology in Computing</span>
+                  <span>Computational Science and Numerical Methods</span>
+                  <span>Linear Algebra</span>
+                  <span>Algorithm and Complexity Analysis</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Technical Skills -->
+            <div class="resume-section-card" data-aos="fade-up" data-aos-delay="200">
+              <div class="resume-title"><i class="bi bi-tools"></i> Technical Skills</div>
+
+              <div class="skills-category">
+                <p class="skills-category-label">Healthcare &amp; Data Analytics</p>
+                <div class="project-tags">
+                  <span class="tag">Healthcare Analytics</span>
+                  <span class="tag">Predictive Modelling</span>
+                  <span class="tag">Machine Learning</span>
+                  <span class="tag">Statistical Analysis</span>
+                  <span class="tag">Health Informatics</span>
+                  <span class="tag">Research</span>
+                </div>
+              </div>
+
+              <div class="skills-category">
+                <p class="skills-category-label">Programming &amp; Tools</p>
+                <div class="project-tags">
+                  <span class="tag">Python</span>
+                  <span class="tag">SQL</span>
+                  <span class="tag">Git</span>
+                  <span class="tag">GitHub</span>
+                  <span class="tag">VS Code</span>
+                </div>
+              </div>
+
+              <div class="skills-category">
+                <p class="skills-category-label">Libraries &amp; Frameworks</p>
+                <div class="project-tags">
+                  <span class="tag">pandas</span>
+                  <span class="tag">NumPy</span>
+                  <span class="tag">scikit-learn</span>
+                  <span class="tag">matplotlib</span>
+                  <span class="tag">seaborn</span>
+                  <span class="tag">Streamlit</span>
+                </div>
+              </div>
+
+              <div class="skills-category">
+                <p class="skills-category-label">Visualisation &amp; Reporting</p>
+                <div class="project-tags">
+                  <span class="tag">Power BI</span>
+                  <span class="tag">Tableau</span>
+                  <span class="tag">Microsoft Excel</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Certifications -->
+            <div class="resume-section-card" data-aos="fade-up" data-aos-delay="250">
+              <div class="resume-title"><i class="bi bi-patch-check"></i> Certifications</div>
+              <ul class="cert-list">
+                <li>Introduction to Data Science in Python <span class="cert-issuer">— DataCamp</span></li>
+                <li>Intermediate Python <span class="cert-issuer">— DataCamp</span></li>
+                <li>Intermediate SQL <span class="cert-issuer">— DataCamp</span></li>
+                <li>Understanding Artificial Intelligence <span class="cert-issuer">— DataCamp</span></li>
+              </ul>
+            </div>
+
+          </div><!-- End Left Column -->
+
+          <!-- ── Right Column ── -->
+          <div class="col-lg-6">
+
+            <!-- Experience -->
+            <div class="resume-section-card" data-aos="fade-up" data-aos-delay="150">
+              <div class="resume-title"><i class="bi bi-briefcase"></i> Experience</div>
+
+              <!-- Research Assistant -->
+              <div class="exp-item">
+                <h4>Undergraduate Research Assistant</h4>
+                <p class="exp-project">Fingerprint-Based Malnutrition Risk Prediction System</p>
+                <p class="exp-org">Software Engineering Institute, LAUTECH</p>
+                <h5>November 2024 – September 2025</h5>
+                <ul>
+                  <li>Conducted undergraduate research exploring the use of fingerprint biometric features and demographic information for early malnutrition risk screening.</li>
+                  <li>Developed a machine learning model achieving 91.67% classification accuracy and ROC-AUC of 0.87.</li>
+                  <li>Built a predictive pipeline integrating biometric, demographic, and nutritional datasets from multiple sources.</li>
+                  <li>Applied machine learning techniques including supervised classification, threshold adjustment, feature engineering, and model evaluation.</li>
+                  <li>Evaluated model performance beyond accuracy, with emphasis on healthcare screening considerations and practical limitations.</li>
+                </ul>
+              </div>
+
+              <!-- BCT -->
+              <div class="exp-item">
+                <h4>Data Analytics Intern</h4>
+                <p class="exp-org">Business Codes &amp; Technologies (BCT) Limited, Lagos State</p>
+                <h5>June 2024 – October 2024</h5>
+                <ul>
+                  <li>Guided learners through practical data analysis projects and analytical workflows.</li>
+                  <li>Collected, cleaned, and analysed datasets containing over 6,000 records using Python and SQL to identify useful patterns and insights.</li>
+                  <li>Designed interactive Power BI dashboards to communicate findings effectively.</li>
+                </ul>
+              </div>
+
+              <!-- SCM -->
+              <div class="exp-item">
+                <h4>Data Analytics Tutor</h4>
+                <p class="exp-org">Student Christian Movement (SCM), LAUTECH</p>
+                <h5>December 2024 – July 2025</h5>
+                <ul>
+                  <li>Designed and delivered training on Excel, Power BI, and data visualisation concepts for more than 30 students.</li>
+                  <li>Supervised practical projects and supported learners in applying analytical techniques to real-world problems.</li>
+                </ul>
+              </div>
+
+              <!-- awaHealth Africa -->
+              <div class="exp-item">
+                <h4>Volunteer</h4>
+                <p class="exp-org">awaHealth Africa, Ogbomoso</p>
+                <h5>September 2025</h5>
+                <ul>
+                  <li>Co-designed a community-pooled health insurance scheme for ten families to improve access to preventive healthcare.</li>
+                  <li>Contributed to monitoring approaches intended to improve transparency and efficient resource use.</li>
+                  <li>Gained practical exposure to community health challenges and health-focused programme design.</li>
+                </ul>
+              </div>
+
+            </div><!-- End Experience Card -->
+
+            <!-- Selected Projects -->
+            <div class="resume-section-card" data-aos="fade-up" data-aos-delay="300">
+              <div class="resume-title"><i class="bi bi-folder2-open"></i> Selected Projects</div>
+
+              <div class="selected-project-item">
+                <h5>Fingerprint-Based Malnutrition Risk Prediction System</h5>
+                <p>Desktop application using biometric and demographic data to predict early malnutrition risks in children, achieving 91.67% classification accuracy.</p>
+              </div>
+
+              <div class="selected-project-item">
+                <h5>Clinical Diabetes Risk Prediction</h5>
+                <p>Machine learning application using Python and scikit-learn to predict diabetes risk based on specific clinical indicators.</p>
+              </div>
+
+              <div class="selected-project-item">
+                <h5>Medical Insurance Cost Modelling</h5>
+                <p>Applied machine learning to patient demographics and health factors to analyse and predict medical insurance charges.</p>
+              </div>
+
+              <div class="mt-4">
+                <a href="portfolio.html" class="btn-primary-blue">
+                  <i class="bi bi-folder2-open"></i> View Full Portfolio &rarr;
+                </a>
+              </div>
+            </div>
+
+          </div><!-- End Right Column -->
+
+        </div><!-- End Row -->
+
+        <!-- ── Download CTA ── -->
+        <div class="resume-cta-bar" data-aos="fade-up" data-aos-delay="350">
+          <p><strong>Academic CV</strong> — Full curriculum vitae including research details, coursework, and references.</p>
+          <a href="https://drive.google.com/file/d/1ku_fuCZdsL64_4u838zv3j2YkrRnRVcD/view?usp=sharing" target="_blank" rel="noopener" class="btn-primary-blue">
+            <i class="bi bi-download"></i> Download Academic CV (PDF)
+          </a>
+        </div>
+
       </div>
-    </section>
-  </main>
+    </section><!-- End Resume Section -->
+
+  </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->
   <footer id="footer">
