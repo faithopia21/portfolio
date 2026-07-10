@@ -162,7 +162,15 @@ h1, h2, h3, h4, h5, h6 {
 
 @media (max-width: 576px) {
   #header .logo {
-    font-size: 18px;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+  }
+}
+
+@media (max-width: 420px) {
+  #header .logo {
+    font-size: 13px;
+    letter-spacing: 0;
   }
 }
 
