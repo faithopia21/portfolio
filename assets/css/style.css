@@ -162,14 +162,35 @@ h1, h2, h3, h4, h5, h6 {
 
 @media (max-width: 576px) {
   #header .logo {
-    font-size: 15px;
-    letter-spacing: 0.5px;
+    font-size: 12px;
+    letter-spacing: 0;
+  }
+  .header-social-links {
+    gap: 6px;
+    padding-left: 8px;
+  }
+  .header-social-links a {
+    width: 26px;
+    height: 26px;
+    font-size: 12px;
+  }
+  .header-social-links .header-cv-link {
+    font-size: 12px;
+    padding: 3px 6px;
+    gap: 4px;
+    margin-left: 4px !important;
+  }
+  .header-social-links .header-cv-link i {
+    font-size: 13px;
+  }
+  .mobile-nav-toggle {
+    font-size: 22px;
   }
 }
 
 @media (max-width: 420px) {
   #header .logo {
-    font-size: 13px;
+    font-size: 11px;
     letter-spacing: 0;
   }
 }
