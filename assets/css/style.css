@@ -342,23 +342,48 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 0;
   background: none;
   border: none;
-  padding: 0;
+  padding: 0 4px;
   transition: var(--transition);
+  flex-shrink: 0;
+  z-index: 998;
+  position: relative;
 }
 
 @media (max-width: 991px) {
   /* Show hamburger; hide desktop nav links */
   .mobile-nav-toggle {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   .navbar ul {
     display: none;
   }
-  /* Keep the nav shell as a flex item so the hamburger inside it renders */
+  /* Keep the nav shell as a flex item — prevent it collapsing to zero width */
   .navbar {
     display: flex;
     align-items: center;
     padding: 0;
+    flex-shrink: 0;   /* <-- KEY: never let Bootstrap squeeze this away */
+    order: 2;         /* sits between logo (order 1 default) and social (order 3) */
+  }
+
+  /* Push social links to the very end on mobile */
+  #header .container-fluid {
+    flex-wrap: nowrap;
+  }
+  .header-social-links {
+    order: 3;
+    flex-shrink: 1;
+    min-width: 0;
+  }
+  #header .logo {
+    order: 1;
+    flex-shrink: 1;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   /* Prevent page from scrolling behind the open drawer */
