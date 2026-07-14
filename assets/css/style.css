@@ -173,18 +173,7 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-/* Mobile Nav Toggle (hamburger): hidden on desktop, shown on mobile */
-@media (max-width: 991px) {
-  .mobile-nav-toggle {
-    display: block;
-  }
-  .navbar ul {
-    display: none;
-  }
-  body.mobile-nav-active {
-    overflow: hidden;
-  }
-}
+
 
 #header .logo {
   font-size: 24px;
@@ -327,9 +316,22 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--text-primary);
   font-size: 28px;
   cursor: pointer;
-  display: none;
+  display: none;  /* hidden on desktop */
   line-height: 0;
   transition: var(--transition);
+}
+
+/* Show hamburger on mobile; hide desktop nav links */
+@media (max-width: 991px) {
+  .mobile-nav-toggle {
+    display: block;  /* overrides the display:none above */
+  }
+  .navbar ul {
+    display: none;
+  }
+  body.mobile-nav-active {
+    overflow: hidden;
+  }
 }
 
 
