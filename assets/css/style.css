@@ -160,10 +160,34 @@ h1, h2, h3, h4, h5, h6 {
   transition: var(--transition);
 }
 
-/* Simple mobile logo font reduction — matches original d6dfa07 behaviour */
 @media (max-width: 576px) {
   #header .logo {
-    font-size: 18px;
+    font-size: 17px;
+    letter-spacing: 0;
+  }
+  .header-social-links {
+    gap: 6px;
+    padding-left: 6px;
+  }
+  .header-social-links a {
+    width: 26px;
+    height: 26px;
+    font-size: 12px;
+  }
+  .header-social-links .header-cv-link {
+    font-size: 12px;
+    padding: 3px 6px;
+    gap: 4px;
+    margin-left: 4px !important;
+  }
+  .mobile-nav-toggle {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 420px) {
+  #header .logo {
+    font-size: 12px;
   }
 }
 
@@ -172,8 +196,6 @@ h1, h2, h3, h4, h5, h6 {
     padding: 10px 0;
   }
 }
-
-
 
 #header .logo {
   font-size: 24px;
@@ -316,24 +338,58 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--text-primary);
   font-size: 28px;
   cursor: pointer;
-  display: none;  /* hidden on desktop */
+  display: none;
   line-height: 0;
+  background: none;
+  border: none;
+  padding: 0 4px;
   transition: var(--transition);
+  flex-shrink: 0;
+  z-index: 998;
+  position: relative;
 }
 
-/* Show hamburger on mobile; hide desktop nav links */
 @media (max-width: 991px) {
+  /* Show hamburger; hide desktop nav links */
   .mobile-nav-toggle {
-    display: block;  /* overrides the display:none above */
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   .navbar ul {
     display: none;
   }
+  /* Keep the nav shell as a flex item ΓÇö prevent it collapsing to zero width */
+  .navbar {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    flex-shrink: 0;   /* <-- KEY: never let Bootstrap squeeze this away */
+    order: 2;         /* sits between logo (order 1 default) and social (order 3) */
+  }
+
+  /* Push social links to the very end on mobile */
+  #header .container-fluid {
+    flex-wrap: nowrap;
+  }
+  .header-social-links {
+    order: 3;
+    flex-shrink: 1;
+    min-width: 0;
+  }
+  #header .logo {
+    order: 1;
+    flex-shrink: 1;
+    min-width: 0;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  /* Prevent page from scrolling behind the open drawer */
   body.mobile-nav-active {
     overflow: hidden;
   }
 }
-
 
 /* Desktop: always hide the overlay regardless */
 @media (min-width: 992px) {
@@ -344,7 +400,7 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-/* ─── Mobile Nav Overlay (backdrop + drawer container) ─── */
+/* ΓöÇΓöÇΓöÇ Mobile Nav Overlay (backdrop + drawer container) ΓöÇΓöÇΓöÇ */
 #mobile-nav-overlay {
   visibility: hidden;
   pointer-events: none;
@@ -364,7 +420,7 @@ h1, h2, h3, h4, h5, h6 {
   transition: opacity 0.25s ease, visibility 0s linear 0s;
 }
 
-/* ─── Slide-out Drawer Panel ─── */
+/* ΓöÇΓöÇΓöÇ Slide-out Drawer Panel ΓöÇΓöÇΓöÇ */
 #mobile-nav-drawer {
   position: absolute;
   top: 0;
@@ -386,7 +442,7 @@ h1, h2, h3, h4, h5, h6 {
   transform: translateX(0);
 }
 
-/* ─── Close Button (X) — top of drawer, not floating ─── */
+/* ΓöÇΓöÇΓöÇ Close Button (X) ΓÇö top of drawer, not floating ΓöÇΓöÇΓöÇ */
 #mobile-nav-close {
   position: sticky;
   top: 0;
@@ -416,7 +472,7 @@ h1, h2, h3, h4, h5, h6 {
   background: var(--accent-light);
 }
 
-/* ─── Nav Links inside Drawer ─── */
+/* ΓöÇΓöÇΓöÇ Nav Links inside Drawer ΓöÇΓöÇΓöÇ */
 #mobile-nav-drawer nav {
   flex: 1;
   padding: 8px 0 30px 0;
@@ -971,7 +1027,7 @@ section {
 }
 
 .resume-skill-card li::before {
-  content: "•";
+  content: "ΓÇó";
   color: var(--accent-color);
   font-size: 18px;
 }
