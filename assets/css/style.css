@@ -162,32 +162,44 @@ h1, h2, h3, h4, h5, h6 {
 
 @media (max-width: 576px) {
   #header .logo {
-    font-size: 13px;
+    font-size: 14px;
     letter-spacing: 0;
   }
   .header-social-links {
-    gap: 6px;
-    padding-left: 6px;
+    gap: 8px;
+    padding-left: 8px;
+    flex-shrink: 0;      /* icons must never compress */
   }
   .header-social-links a {
-    width: 26px;
-    height: 26px;
-    font-size: 12px;
+    width: 30px;
+    height: 30px;
+    font-size: 15px;
   }
   .header-social-links .header-cv-link {
-    font-size: 12px;
+    font-size: 13px;
     padding: 3px 6px;
     gap: 4px;
     margin-left: 4px !important;
   }
   .mobile-nav-toggle {
-    font-size: 22px;
+    font-size: 24px;
   }
 }
 
 @media (max-width: 420px) {
   #header .logo {
     font-size: 12px;
+    letter-spacing: 0;
+  }
+  .header-social-links {
+    gap: 6px;
+    padding-left: 4px;
+    flex-shrink: 0;
+  }
+  .header-social-links a {
+    width: 28px;
+    height: 28px;
+    font-size: 14px;
   }
 }
 
@@ -374,16 +386,12 @@ h1, h2, h3, h4, h5, h6 {
   }
   .header-social-links {
     order: 3;
-    flex-shrink: 1;
-    min-width: 0;
+    flex-shrink: 0;   /* icons must never compress */
   }
   #header .logo {
     order: 1;
-    flex-shrink: 1;
+    flex-shrink: 1;   /* logo shrinks via font-size rules, not clipping */
     min-width: 0;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
   }
 
   /* Prevent page from scrolling behind the open drawer */
