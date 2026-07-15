@@ -1,4 +1,4 @@
-﻿/* Custom Clinical / Medical Blue CSS Theme
+/* Custom Clinical / Medical Blue CSS Theme
    Author: Antigravity / Faith Olaniyi Portfolio
    Color Palette: White, Slate Gray, Powder Blue/Medical Accent (#0284c7)
 */
@@ -191,6 +191,11 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--accent-color);
 }
 
+/* Mobile initials: "F" in primary, "O" in accent (matching FAITH / OLANIYI) */
+#header .logo a .logo-initials {
+  color: var(--text-primary);
+}
+
 .navbar {
   padding: 0;
 }
@@ -345,7 +350,7 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-/* ΓöÇΓöÇΓöÇ Mobile Nav Overlay (backdrop + drawer container) ΓöÇΓöÇΓöÇ */
+/* ─── Mobile Nav Overlay (backdrop + drawer container) ─── */
 #mobile-nav-overlay {
   visibility: hidden;
   pointer-events: none;
@@ -365,7 +370,7 @@ h1, h2, h3, h4, h5, h6 {
   transition: opacity 0.25s ease, visibility 0s linear 0s;
 }
 
-/* ΓöÇΓöÇΓöÇ Slide-out Drawer Panel ΓöÇΓöÇΓöÇ */
+/* ─── Slide-out Drawer Panel ─── */
 #mobile-nav-drawer {
   position: absolute;
   top: 0;
@@ -387,7 +392,7 @@ h1, h2, h3, h4, h5, h6 {
   transform: translateX(0);
 }
 
-/* ΓöÇΓöÇΓöÇ Close Button (X) ΓÇö top of drawer, not floating ΓöÇΓöÇΓöÇ */
+/* ─── Close Button (X) — top of drawer, not floating ─── */
 #mobile-nav-close {
   position: sticky;
   top: 0;
@@ -417,7 +422,7 @@ h1, h2, h3, h4, h5, h6 {
   background: var(--accent-light);
 }
 
-/* ΓöÇΓöÇΓöÇ Nav Links inside Drawer ΓöÇΓöÇΓöÇ */
+/* ─── Nav Links inside Drawer ─── */
 #mobile-nav-drawer nav {
   flex: 1;
   padding: 8px 0 30px 0;
@@ -954,7 +959,7 @@ section {
 }
 
 .resume-skill-card li::before {
-  content: "ΓÇó";
+  content: "•";
   color: var(--accent-color);
   font-size: 18px;
 }
