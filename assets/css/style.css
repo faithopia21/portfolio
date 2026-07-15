@@ -1,4 +1,4 @@
-/* Custom Clinical / Medical Blue CSS Theme
+﻿/* Custom Clinical / Medical Blue CSS Theme
    Author: Antigravity / Faith Olaniyi Portfolio
    Color Palette: White, Slate Gray, Powder Blue/Medical Accent (#0284c7)
 */
@@ -162,32 +162,7 @@ h1, h2, h3, h4, h5, h6 {
 
 @media (max-width: 576px) {
   #header .logo {
-    font-size: 17px;
-    letter-spacing: 0;
-  }
-  .header-social-links {
-    gap: 6px;
-    padding-left: 6px;
-  }
-  .header-social-links a {
-    width: 26px;
-    height: 26px;
-    font-size: 12px;
-  }
-  .header-social-links .header-cv-link {
-    font-size: 12px;
-    padding: 3px 6px;
-    gap: 4px;
-    margin-left: 4px !important;
-  }
-  .mobile-nav-toggle {
-    font-size: 22px;
-  }
-}
-
-@media (max-width: 420px) {
-  #header .logo {
-    font-size: 12px;
+    font-size: 18px;
   }
 }
 
@@ -342,47 +317,17 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 0;
   background: none;
   border: none;
-  padding: 0 4px;
+  padding: 0;
   transition: var(--transition);
-  flex-shrink: 0;
-  z-index: 998;
-  position: relative;
 }
 
 @media (max-width: 991px) {
   /* Show hamburger; hide desktop nav links */
   .mobile-nav-toggle {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: block;
   }
   .navbar ul {
     display: none;
-  }
-  /* Keep the nav shell as a flex item ΓÇö prevent it collapsing to zero width */
-  .navbar {
-    display: flex;
-    align-items: center;
-    padding: 0;
-    flex-shrink: 0;   /* <-- KEY: never let Bootstrap squeeze this away */
-    order: 2;         /* sits between logo (order 1 default) and social (order 3) */
-  }
-
-  /* Push social links to the very end on mobile */
-  #header .container-fluid {
-    flex-wrap: nowrap;
-  }
-  .header-social-links {
-    order: 3;
-    flex-shrink: 1;
-    min-width: 0;
-  }
-  #header .logo {
-    order: 1;
-    flex-shrink: 1;
-    min-width: 0;
-    overflow: hidden;
-    white-space: nowrap;
   }
 
   /* Prevent page from scrolling behind the open drawer */
@@ -789,29 +734,11 @@ section {
     justify-content: center;
   }
   #hero h1 {
-    font-size: 36px;
-    letter-spacing: -0.5px;
-  }
-  #hero h2 {
-    font-size: 20px;
+    font-size: 42px;
   }
   .profile-image-container {
     width: 260px;
     height: 260px;
-  }
-}
-
-@media (max-width: 576px) {
-  #hero h1 {
-    font-size: 28px;
-    letter-spacing: -0.5px;
-  }
-  #hero h2 {
-    font-size: 17px;
-    margin-bottom: 16px;
-  }
-  .hero-bio {
-    font-size: 15px;
   }
 }
 
